@@ -79,7 +79,7 @@ public class BookSetGenerator {
 		String randomTitle = generateRandomString(TITLE_MAX_LENGTH);
 		
 		// Titles will be maximum AUTHOR_MAX_LENGTH characters long
-		String randomaAuthor = generateRandomString(AUTHOR_MAX_LENGTH);
+		String randomAuthor = generateRandomString(AUTHOR_MAX_LENGTH);
 
 		// Price will be in range of (1, MAX_PRICE)
 		int  randomPrice = randomGenerator.nextInt(MAX_PRICE) + 1;
@@ -87,10 +87,11 @@ public class BookSetGenerator {
 		// No. of copies for a book will be in range of (1, MAX_NO_COPIES)
 		int randomNoCopies = randomGenerator.nextInt(MAX_PRICE) + 1;
 		
-		int isbn, String title, String author, float price, int numCopies, long numSaleMisses,
-		long numTimesRated, long totalRating, boolean editorPick
+		boolean randomEditorPick = randomGenerator.nextBoolean();
+
 		
-		ImmutableStockBook immutableStockBook = new ImmutableStockBook();
+		ImmutableStockBook immutableStockBook = new ImmutableStockBook(
+				ISBN, randomTitle, randomAuthor, randomPrice, randomNoCopies, 0, 0, 0, randomEditorPick);
 		return immutableStockBook;
 	}
 	
